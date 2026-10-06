@@ -3,3 +3,25 @@ body {
     font-family: Arial, sans-serif;
     color: #333;
 }
+
+nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.site-gallery {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.site-gallery img {
+    width: min(100%, 320px);
+    height: auto;
+}
+
+footer {
+    margin-top: 2rem;
+}

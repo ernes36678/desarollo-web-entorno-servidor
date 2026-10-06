@@ -5,11 +5,24 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
 </head>
 <body>
+    <nav aria-label="Main navigation">
+        <a href="{% url 'homepage' %}">Home</a>
+        <a href="{% url 'escaparate_index' %}">Escaparate</a>
+    </nav>
+
     <h1>Welcome to My Website!</h1>
     <p>This is a custom HTML template served by Django with static files working.</p>
-    
-    <img src="{% static 'images/logo.png' %}" alt="Logo">
+
+    <div class="site-gallery">
+        <img src="{% static 'images/logo.png' %}" alt="Logo">
+        <img src="{% static 'images/mountain.svg' %}" alt="Mountain landscape">
+    </div>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Mira el monte</p>
+    </footer>
 </body>
 </html>
