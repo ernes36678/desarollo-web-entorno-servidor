@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from . import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage, name='homepage'),
-    path('escaparate/', include('escaparate.urls')),
+    path('', include(('mi_proyecto.core_urls', 'core'), namespace='core')),
+    path(
+        'escaparate/',
+        include(('escaparate.urls', 'escaparate'), namespace='escaparate'),
+    ),
+    path(
+        'calendario/',
+        include(('calendario.urls', 'calendario'), namespace='calendario'),
+    ),
 ]

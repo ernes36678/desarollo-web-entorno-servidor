@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+app_name = 'escaparate'
+
 urlpatterns = [
-    path('', views.index, name='escaparate_index'),
+    path('', views.index, name='homepage'),
 ]
