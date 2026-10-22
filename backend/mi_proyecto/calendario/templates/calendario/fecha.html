@@ -1,0 +1,10 @@
+{% extends 'template.html' %}
+
+{% block title %}Calendario | Mi sitio web{% endblock %}
+
+{% block content %}
+    <section>
+        <h1>Fecha solicitada</h1>
+        <p>Hoy es {{ dia }} de {{ mes }} del año {{ ano }}. {{ mensaje }}.</p>
+    </section>
+{% endblock %}
