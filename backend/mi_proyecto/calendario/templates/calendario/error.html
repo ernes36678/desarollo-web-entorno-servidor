@@ -1,0 +1,10 @@
+{% extends 'template.html' %}
+
+{% block title %}Fecha no válida | Mi sitio web{% endblock %}
+
+{% block content %}
+    <section>
+        <h1>Fecha no válida</h1>
+        <p>No se pudo interpretar «{{ fecha }}». Introduce la fecha con el formato {{ formato }}.</p>
+    </section>
+{% endblock %}

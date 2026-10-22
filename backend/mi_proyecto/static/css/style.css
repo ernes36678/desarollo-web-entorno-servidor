@@ -1,13 +1,52 @@
 body {
+    min-height: 100vh;
+    margin: 0;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     color: #333;
 }
 
+.site-header,
+.site-content,
+.site-footer {
+    width: min(100% - 2rem, 960px);
+    margin-inline: auto;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.site-brand {
+    color: inherit;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
 nav {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+}
+
+nav a {
+    color: #333;
+}
+
+.site-content {
+    min-height: 60vh;
+    padding-block: 2rem;
+}
+
+.welcome {
+    margin-bottom: 2rem;
 }
 
 .site-gallery {
@@ -23,5 +62,50 @@ nav {
 }
 
 footer {
-    margin-top: 2rem;
+    border-top: 1px solid #ccc;
+    padding-block: 1rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1rem;
+    max-width: 36rem;
+    margin-top: 1.5rem;
+}
+
+.form-field {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.form-field input,
+.form-field textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.65rem;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.contact-form button {
+    justify-self: start;
+    padding: 0.65rem 1rem;
+    border: 0;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }

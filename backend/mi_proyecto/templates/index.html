@@ -1,0 +1,15 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block title %}Inicio | Mi sitio web{% endblock %}
+
+{% block content %}
+    <section class="welcome">
+        <h1>Bienvenido a mi sitio web</h1>
+        <p>Este es el espacio principal de la web. Desde aquí puedes visitar el escaparate o ponerte en contacto.</p>
+    </section>
+
+    <div class="site-gallery">
+        <img src="{% static 'images/mountain.svg' %}" alt="Paisaje de montaña">
+    </div>
+{% endblock %}
