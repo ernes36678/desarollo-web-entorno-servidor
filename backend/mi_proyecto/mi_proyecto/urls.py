@@ -28,4 +28,8 @@ urlpatterns = [
         'calendario/',
         include(('calendario.urls', 'calendario'), namespace='calendario'),
     ),
+    path(
+        '',
+        include(('tres_en_raya.urls', 'tres_en_raya'), namespace='tres_en_raya'),
+    ),
 ]
