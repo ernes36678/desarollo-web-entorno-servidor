@@ -1,15 +1,38 @@
+:root {
+    color-scheme: light;
+    /* Nueva paleta de colores más refinada */
+    --color-ink: #0f172a;          /* Tono más profundo para los textos principales (Slate 900) */
+    --color-muted: #475569;        /* Tono secundario más legible (Slate 600) */
+    --color-primary: #6366f1;      /* Índigo moderno y vibrante (Indigo 500) */
+    --color-primary-dark: #4f46e5; /* Índigo profundo para contrastes (Indigo 600) */
+    --color-surface: #ffffff;      /* Superficie limpia */
+    --color-border: #cbd5e1;       /* Bordes ligeramente más definidos (Slate 300) */
+    --shadow-card: 0 20px 40px -15px rgb(15 23 42 / 7%);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    color: #333;
+    background:
+        radial-gradient(ellipse at top left, rgb(99 102 241 / 15%), transparent 40rem),
+        #f8fafc; /* Fondo general ultra limpio (Slate 50) */
+    color: var(--color-ink);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.65;
 }
 
 .site-header,
 .site-content,
 .site-footer {
-    width: min(100% - 2rem, 960px);
+    width: min(100% - 2.5rem, 1120px);
     margin-inline: auto;
 }
 
@@ -19,51 +42,123 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
-    padding-block: 1.25rem;
-    border-bottom: 1px solid #ccc;
+    padding-block: 1.75rem;
+    border-bottom: 1px solid rgb(203 213 225 / 60%);
 }
 
 .site-brand {
-    color: inherit;
-    font-size: 1.25rem;
-    font-weight: 700;
+    color: var(--color-ink);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     text-decoration: none;
+    transition: color 200ms ease;
+}
+
+.site-brand:hover {
+    color: var(--color-primary);
 }
 
 nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 nav a {
-    color: #333;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 200ms ease;
+}
+
+nav a:hover {
+    transform: translateY(-2px);
+    background-color: rgb(99 102 241 / 10%);
+    color: var(--color-primary-dark);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgb(99 102 241 / 40%);
+    outline-offset: 2px;
 }
 
 .site-content {
-    min-height: 60vh;
-    padding-block: 2rem;
+    flex: 1;
+    margin-block: 3rem;
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid rgb(203 213 225 / 80%);
+    border-radius: 28px;
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+}
+
+.site-content h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: var(--color-ink);
+}
+
+.site-content p {
+    color: var(--color-muted);
+}
+
+.site-content a:not(.site-brand) {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    transition: color 150ms ease;
+}
+
+.site-content a:not(.site-brand):hover {
+    color: var(--color-primary);
 }
 
 .welcome {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.welcome p {
+    max-width: 44rem;
+    font-size: 1.12rem;
 }
 
 .site-gallery {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.25rem;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 .site-gallery img {
-    width: min(100%, 320px);
+    width: min(100%, 340px);
     height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 10%);
+    transition: transform 300ms ease;
 }
 
-footer {
-    border-top: 1px solid #ccc;
-    padding-block: 1rem;
+.site-gallery img:hover {
+    transform: scale(1.02);
+}
+
+.site-footer {
+    padding-block: 1.5rem 2rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 0.9rem;
 }
 
 .site-footer p {
@@ -72,40 +167,107 @@ footer {
 
 .contact-form {
     display: grid;
-    gap: 1rem;
-    max-width: 36rem;
-    margin-top: 1.5rem;
+    gap: 1.25rem;
+    max-width: 38rem;
+    margin-top: 2rem;
 }
 
 .form-field {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.5rem;
+}
+
+.form-field label {
+    color: var(--color-ink);
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 .form-field input,
 .form-field textarea {
-    box-sizing: border-box;
     width: 100%;
-    padding: 0.65rem;
-    border: 1px solid #999;
-    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background-color: #f8fafc;
+    color: var(--color-ink);
     font: inherit;
+    transition: all 200ms ease;
+}
+
+.form-field textarea {
+    min-height: 9rem;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: var(--color-primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(99 102 241 / 15%);
 }
 
 .contact-form button {
     justify-self: start;
-    padding: 0.65rem 1rem;
+    padding: 0.85rem 1.5rem;
     border: 0;
-    border-radius: 4px;
-    background: #333;
+    border-radius: 12px;
+    background: var(--color-primary);
     color: #fff;
     font: inherit;
+    font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgb(99 102 241 / 30%);
+    transition: all 200ms ease;
 }
 
-@media (max-width: 480px) {
+.contact-form button:hover {
+    transform: translateY(-2px);
+    background: var(--color-primary-dark);
+    box-shadow: 0 6px 16px rgb(99 102 241 / 40%);
+}
+
+::selection {
+    background: rgb(99 102 241 / 20%);
+    color: var(--color-primary-dark);
+}
+
+@media (max-width: 720px) {
     .site-header {
         align-items: flex-start;
         flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header,
+    .site-content,
+    .site-footer {
+        width: min(100% - 1.5rem, 1120px);
+    }
+
+    nav {
+        gap: 0.25rem;
+    }
+
+    nav a {
+        padding-inline: 0.75rem;
+    }
+
+    .site-content {
+        margin-block: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
