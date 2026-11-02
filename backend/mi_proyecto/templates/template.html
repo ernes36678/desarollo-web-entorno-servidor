@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Mi sitio web{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" href="{% static 'images/mountain.svg' %}" type="image/svg+xml">
+    {% now "U" as cache_buster %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ cache_buster }}">
+    <link rel="icon" href="{% static 'images/desarolloEntornoServidor.jpg' %}" type="image/jpeg">
     {% block extra_head %}{% endblock %}
     <script src="{% static 'js/script.js' %}" defer></script>
 </head>
 <body>
     <header class="site-header">
         <a class="site-brand" href="{% url 'core:homepage' %}">Mi sitio web</a>
+        {% now "d-m-Y" as fecha_actual %}
         <nav aria-label="Navegación principal">
             <a href="{% url 'core:homepage' %}">Inicio</a>
             <a href="{% url 'escaparate:homepage' %}">Escaparate</a>
+            <a href="{% url 'calendario:calendario' fecha=fecha_actual %}">Calendario</a>
+            <a href="{% url 'tres_en_raya:tres_en_raya' %}">Tres en raya</a>
             <a href="{% url 'core:contacto' %}">Contacto</a>
         </nav>
     </header>

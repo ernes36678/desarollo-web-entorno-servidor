@@ -9,7 +9,11 @@ class SitePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
         self.assertTemplateUsed(response, 'template.html')
-        self.assertContains(response, 'Bienvenido a mi sitio web')
+        self.assertContains(response, 'Plataforma de Gestión y Servicios Web')
+        self.assertContains(
+            response,
+            'Bienvenido al portal principal de la aplicación web. Desde este entorno servidor gestionamos la lógica de negocio, el procesamiento de datos del escaparate y el sistema de comunicaciones en tiempo real para las consultas de contacto.',
+        )
 
     def test_escaparate_uses_shared_template(self):
         response = self.client.get(reverse('escaparate:homepage'))

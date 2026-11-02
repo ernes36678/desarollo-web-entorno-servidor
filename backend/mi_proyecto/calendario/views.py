@@ -29,7 +29,7 @@ DIAS = (
 )
 
 
-def calendario(request, fecha):
+def calendario(request, fecha): 
     try:
         fecha_usuario = datetime.strptime(fecha, '%d-%m-%Y').date()
         if fecha_usuario.strftime('%d-%m-%Y') != fecha:
